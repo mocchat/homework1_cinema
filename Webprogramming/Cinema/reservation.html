@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset = "utf-8">
+  <link href="cinema.css" rel="stylesheet"/>
+  <title></title>
+ </head>
+ <body onload="pageload();">
+   <script type="text/javascript">
+     var ls = window.localStorage; // 로컬 스토리지
+     if (!ls) {
+      alert("로컬 스토리지를 지원하지 않습니다.");
+      }
+     var money = 0;
+     var tut = " "
+     var arr_table = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8'];
+     var arr_i = ['d', 'dd', 'ddd', 'dddd', 'ddddd', 'dddddd', 'ddddddd', 'dddddddd'];
+     var tb_value = " ";
+     var d = "d";
+
+     function deleteItem(i){
+       var mi = ls.key(i);
+       ls.removeItem(mi);
+       window.location.reload();
+     }
+
+     function see_del(i){
+       var min = arr_i[i];
+       if(document.getElementById(min).style.display == "block"){
+         document.getElementById(min).style.display = "none";
+       }
+       else{
+         document.getElementById(min).style.display = "block";
+       }
+     }
+     function pageload() {
+       prt.innerHTML = "";
+       for (var i = 0; i < ls.length; i++) { // 로컬 스토리지 전체 검색
+         var k = ls.key(i);
+         const kk = k.split(" ");
+         var v = ls.getItem(k);
+         const vv = v.split(" ").sort();
+         prt.innerHTML +="<br><dt>" + kk[0] + " </dt><dd> " + kk[1] + kk[2] + '</dd><div id='+d+"a"+'><span onclick="see_del('+i+'); return false" class="see_d">(상세내용 보기)</span></div><div><dd id='+d+' class="details">' + "예약자명 : 홍길동 | 좌석" + vv + '&nbsp;&nbsp;<input type="button" value="삭제" class="del_ls" onclick="deleteItem('+i+')"></dd><br></div>';
+         d = d + "d";
+       }
+     }
+
+   </script>
+   <section id="title">
+     <div id="headline">
+      <a href="main.html"><h1>Cine Pequeño</h1></a>
+     </div>
+     <div>
+       <a href="intro.html"><div class="menu"><h3>극장소개</h3></div></a>
+       <a href="movies.html"><div class="menu"><h3>영화소개</h3></div></a>
+       <a href="reservation.html"><div class="menu"><h3>예매</h3></div></a>
+       <a href="event.html"><div class="menu"><h3>이벤트</h3></div></a>
+     </div>
+   </section>
+   <section id="medium">
+     <br>
+     <div class="movies">
+       <h1 class="structure_name">예약하실 영화를 선택해주세요</h1>
+       <hr><br>
+     </div>
+     <div>
+       <div class="posters" onclick="change1()">
+         <img height="500" src="media/극한직업.jpg" alt="극한직업">
+         <br><br>
+         <div id="p1" class="choice">
+           <h2>선 택</h2>
+         </div>
+       </div>
+       <div class="posters" onclick="change2()">
+         <img height="500" src="media/기생충.jpg" alt="기생충">
+         <br><br>
+         <div id="p2" class="choice">
+           <h2>선 택</h2>
+         </div>
+       </div>
+       <div class="posters" onclick="change3()">
+         <img height="500" src="media/닥터.jpg" alt="닥터스트레인지2">
+         <br><br>
+         <div id="p3" class="choice">
+           <h2>선 택</h2>
+         </div>
+       </div>
+       <div class="posters" onclick="change4()">
+         <img height="500" src="media/데드풀.jpg" alt="데드풀">
+         <br><br>
+         <div id="p4" class="choice">
+           <h2>선 택</h2>
+         </div>
+       </div>
+       <div class="posters" onclick="change5()">
+         <img height="500" src="media/인시디어스.jpg" alt="인시디어스3">
+         <br><br>
+         <div id="p5" class="choice">
+           <h2>선 택</h2>
+         </div>
+       </div>
+     </div>
+     <br><br>
+   </section>
+   <section>
+     <div id="movie_reser" class="m2">
+       <div class="m3">
+         <fieldset class="non_rs" id="movie_res">
+           <legend class="notice" id="h_r1"></legend>
+             <br>
+             <h2>가격 : 2500원</h2>
+             <br>
+             <h2 class="notice">&nbsp;날짜</h2><br>
+             &nbsp;
+             <h1 class="structure_name" id="c_r1"></h1><br>
+            <br><br>
+             <h2 class="notice">&nbsp;시간을 선택해주세요.</h2><br>
+             &nbsp;
+             <select id="t_r1">
+             </select>
+             <br><br><br><br>
+             <input class="search" type="button" value="검색" onclick="red_color()">
+             <br><br>
+           </fieldset>
+       </div>
+     </div>
+     <div id="movie_seat" class="m2">
+       <div id="non_ts">
+         <table id="res_table" border="1">
+           <caption id="cap_table"></caption>
+           <tbody>
+             <tr><td class="screen" colspan="10">screen</td></tr>
+             <tr><td id="a1">a1</td><td id="a2">a2</td><td id="passport" rowspan="3">통로</td><td id="a3">a3</td><td id="a4">a4</td><td id="a5">a5</td><td id="a6">a6</td>
+             <td id="passport" rowspan="3">통로</td><td id="a7">a7</td><td id="a8">a8</td></tr>
+             <tr><td id="b1">b1</td><td id="b2">b2</td><td id="b3">b3</td><td id="b4">b4</td><td id="b5">b5</td><td id="b6">b6</td><td id="b7">b7</td><td id="b8">b8</td></tr>
+             <tr><td id="c1">c1</td><td id="c2">c2</td><td id="c3">c3</td><td id="c4">c4</td><td id="c5">c5</td><td id="c6">c6</td><td id="c7">c7</td><td id="c8">c8</td></tr>
+           </tbody>
+         </table>
+         <br>
+         <input class="search" type="button" value="예약하기" onclick="answer()">
+        </div>
+        <br>
+        <div>
+          <div class="money">
+            <script>
+              document.getElementById("a1").onclick = changea1;
+              document.getElementById("a2").onclick = changea2;
+              document.getElementById("a3").onclick = changea3;
+              document.getElementById("a4").onclick = changea4;
+              document.getElementById("a5").onclick = changea5;
+              document.getElementById("a6").onclick = changea6;
+              document.getElementById("a7").onclick = changea7;
+              document.getElementById("a8").onclick = changea8;
+              document.getElementById("b1").onclick = changeb1;
+              document.getElementById("b2").onclick = changeb2;
+              document.getElementById("b3").onclick = changeb3;
+              document.getElementById("b4").onclick = changeb4;
+              document.getElementById("b5").onclick = changeb5;
+              document.getElementById("b6").onclick = changeb6;
+              document.getElementById("b7").onclick = changeb7;
+              document.getElementById("b8").onclick = changeb8;
+              document.getElementById("c1").onclick = changec1;
+              document.getElementById("c2").onclick = changec2;
+              document.getElementById("c3").onclick = changec3;
+              document.getElementById("c4").onclick = changec4;
+              document.getElementById("c5").onclick = changec5;
+              document.getElementById("c6").onclick = changec6;
+              document.getElementById("c7").onclick = changec7;
+              document.getElementById("c8").onclick = changec8;
+              var seat = " ";
+
+              function changea1() {
+                if(document.getElementById("a1").style.background != "red"){
+                  if(document.getElementById("a1").style.background == "blue"){
+                    document.getElementById("a1").style.background = "white";
+                    seat = seat.replace(" a1", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a1").style.background = "blue";
+                    seat = seat + " a1";
+                    money = money + 2500;
+                  }
+                }
+              }
+              function changea2() {
+                if(document.getElementById("a2").style.background != "red"){
+                  if(document.getElementById("a2").style.background == "blue"){
+                    document.getElementById("a2").style.background = "white";
+                    seat = seat.replace(" a2", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a2").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " a2";
+                  }
+                }
+              }
+              function changea3() {
+                if(document.getElementById("a3").style.background != "red"){
+                  if(document.getElementById("a3").style.background == "blue"){
+                    document.getElementById("a3").style.background = "white";
+                    seat = seat.replace(" a3", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a3").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " a3";
+                  }
+                }
+              }
+              function changea4() {
+                if(document.getElementById("a4").style.background != "red"){
+                  if(document.getElementById("a4").style.background == "blue"){
+                    document.getElementById("a4").style.background = "white";
+                    seat = seat.replace(" a4", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a4").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " a4";
+                  }
+                }
+              }
+              function changea5() {
+                if(document.getElementById("a5").style.background != "red"){
+                  if(document.getElementById("a5").style.background == "blue"){
+                    document.getElementById("a5").style.background = "white";
+                    seat = seat.replace(" a5", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a5").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " a5";
+                  }
+                }
+              }
+              function changea6() {
+                if(document.getElementById("a6").style.background != "red"){
+                  if(document.getElementById("a6").style.background == "blue"){
+                    document.getElementById("a6").style.background = "white";
+                    seat = seat.replace(" a6", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a6").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " a6";
+                  }
+                }
+              }
+              function changea7() {
+                if(document.getElementById("a7").style.background != "red"){
+                  if(document.getElementById("a7").style.background == "blue"){
+                    document.getElementById("a7").style.background = "white";
+                    seat = seat.replace(" a7", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a7").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " a7";
+                  }
+                }
+              }
+              function changea8() {
+                if(document.getElementById("a8").style.background != "red"){
+                  if(document.getElementById("a8").style.background == "blue"){
+                    document.getElementById("a8").style.background = "white";
+                    seat = seat.replace(" a8", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("a8").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " a8";
+                  }
+                }
+              }
+              function changec1() {
+                if(document.getElementById("c1").style.background != "red"){
+                  if(document.getElementById("c1").style.background == "blue"){
+                    document.getElementById("c1").style.background = "white";
+                    seat = seat.replace(" c1", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c1").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c1";
+                  }
+                }
+              }
+              function changec2() {
+                if(document.getElementById("c2").style.background != "red"){
+                  if(document.getElementById("c2").style.background == "blue"){
+                    document.getElementById("c2").style.background = "white";
+                    seat = seat.replace(" c2", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c2").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c2";
+                  }
+                }
+              }
+              function changec3() {
+                if(document.getElementById("c3").style.background != "red"){
+                  if(document.getElementById("c3").style.background == "blue"){
+                    document.getElementById("c3").style.background = "white";
+                    seat = seat.replace(" c3", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c3").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c3";
+                  }
+                }
+              }
+              function changec4() {
+                if(document.getElementById("c4").style.background != "red"){
+                  if(document.getElementById("c4").style.background == "blue"){
+                    document.getElementById("c4").style.background = "white";
+                    seat = seat.replace(" c4", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c4").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c4";
+                  }
+                }
+              }
+              function changec5() {
+                if(document.getElementById("c5").style.background != "red"){
+                  if(document.getElementById("c5").style.background == "blue"){
+                    document.getElementById("c5").style.background = "white";
+                    seat = seat.replace(" c5", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c5").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c5";
+                  }
+                }
+              }
+              function changec6() {
+                if(document.getElementById("c6").style.background != "red"){
+                  if(document.getElementById("c6").style.background == "blue"){
+                    document.getElementById("c6").style.background = "white";
+                    seat = seat.replace(" c6", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c6").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c6";
+                  }
+                }
+              }
+              function changec7() {
+                if(document.getElementById("c7").style.background != "red"){
+                  if(document.getElementById("c7").style.background == "blue"){
+                    document.getElementById("c7").style.background = "white";
+                    seat = seat.replace(" c7", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c7").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c7";
+                  }
+                }
+              }
+              function changec8() {
+                if(document.getElementById("c8").style.background != "red"){
+                  if(document.getElementById("c8").style.background == "blue"){
+                    document.getElementById("c8").style.background = "white";
+                    seat = seat.replace(" c8", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("c8").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " c8";
+                  }
+                }
+              }
+              function changeb1() {
+                if(document.getElementById("b1").style.background != "red"){
+                  if(document.getElementById("b1").style.background == "blue"){
+                    document.getElementById("b1").style.background = "white";
+                    seat = seat.replace(" b1", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b1").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b1";
+                  }
+                }
+              }
+              function changeb2() {
+                if(document.getElementById("b2").style.background != "red"){
+                  if(document.getElementById("b2").style.background == "blue"){
+                    document.getElementById("b2").style.background = "white";
+                    seat = seat.replace(" b2", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b2").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b2";
+                  }
+                }
+              }
+              function changeb3() {
+                if(document.getElementById("b3").style.background != "red"){
+                  if(document.getElementById("b3").style.background == "blue"){
+                    document.getElementById("b3").style.background = "white";
+                    seat = seat.replace(" b3", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b3").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b3";
+                  }
+                }
+              }
+              function changeb4() {
+                if(document.getElementById("b4").style.background != "red"){
+                  if(document.getElementById("b4").style.background == "blue"){
+                    document.getElementById("b4").style.background = "white";
+                    seat = seat.replace(" b4", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b4").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b4";
+                  }
+                }
+              }
+              function changeb5() {
+                if(document.getElementById("b5").style.background != "red"){
+                  if(document.getElementById("b5").style.background == "blue"){
+                    document.getElementById("b5").style.background = "white";
+                    seat = seat.replace(" b5", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b5").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b5";
+                  }
+                }
+              }
+              function changeb6() {
+                if(document.getElementById("b6").style.background != "red"){
+                  if(document.getElementById("b6").style.background == "blue"){
+                    document.getElementById("b6").style.background = "white";
+                    seat = seat.replace(" b6", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b6").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b6";
+                  }
+                }
+              }
+              function changeb7() {
+                if(document.getElementById("b7").style.background != "red"){
+                  if(document.getElementById("b7").style.background == "blue"){
+                    document.getElementById("b7").style.background = "white";
+                    seat = seat.replace(" b7", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b7").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b7";
+                  }
+                }
+              }
+              function changeb8() {
+                if(document.getElementById("b8").style.background != "red"){
+                  if(document.getElementById("b8").style.background == "blue"){
+                    document.getElementById("b8").style.background = "white";
+                    seat = seat.replace(" b8", "");
+                    money = money - 2500;
+                  }
+                  else{
+                    document.getElementById("b8").style.background = "blue";
+                    money = money + 2500;
+                    seat = seat + " b8";
+                  }
+                }
+              }
+              function red_color(){
+                var tb = document.getElementById("t_r1");
+                var tbIndex = document.getElementById("t_r1").options.selectedIndex;
+                tb_value = tb.options[tbIndex].value;
+                var red = ls.getItem(tut+tb_value);
+                var cap_table = document.getElementById("cap_table");
+                cap_table.innerHTML = '<h1>좌석을 선택하세요.</h1>'+tb_value;
+                for(i=0; i < arr_table.length; i++){
+                  document.getElementById(arr_table[i]).style.background = "white";
+                }
+                if(red != null){
+                  const arr = red.split(" ");
+                  for(j=2; j < arr.length; j++){
+                     document.getElementById(arr[j]).style.background = "red";
+                  }
+                  if(document.getElementById("non_ts").style.display == "block"){
+                    document.getElementById("non_ts").style.display = "block";
+                  }
+                  else{
+                    document.getElementById("non_ts").style.display = "block";
+                  }
+                }
+                else{
+                  if(document.getElementById("non_ts").style.display == "block"){
+                    document.getElementById("non_ts").style.display = "block";
+                  }
+                  else{
+                    document.getElementById("non_ts").style.display = "block";
+                  }
+                }
+              }
+
+              function answer(){
+
+                if(money == 0){
+                  alert("좌석을 선택해주세요.");
+                }
+                else{
+                  var answer = confirm("결제금액은 " + money + "윈입니다. 결제하시겠습니까?");
+                  if(answer == true){
+                    if(ls.key(0) != null){
+                      answer2 = confirm("같은 시간에 예약이 있으면 자동으로 취소되고 다시 예약합니다. 계속 진행하겠습니까?")
+                      if(answer2 == true){
+                        ls.setItem(tut+tb_value, seat);
+                        money = 0;
+                        window.location.reload();
+                      }
+                    }
+                    else{
+                      ls.setItem(tut+tb_value, seat);
+                      money = 0;
+                      window.location.reload();
+                    }
+                  }
+                }
+              }
+
+            </script>
+          </div>
+          <br>
+        </div>
+      </div>
+   </section>
+   <section>
+     <br>
+     <div class="movies">
+       <h1 class="structure_name">나의 예약확인</h1>
+       <hr><br>
+       <div id="li_res" class="m2">
+         <dl id="id_prt"> </dl>
+         <script>
+          var prt = document.getElementById("id_prt");
+         </script>
+       </div>
+       <br><br><hr><br>
+     </div>
+   </section>
+   <section id="tail">
+     <div class="sns">
+       <a href="https://facebook.com/"><img width="50" height="50" src="media/facebook.jpg" alt="facebook"></a>
+     </div>
+     <div class="sns">
+       <a href="https://www.instagram.com/"><img width="50" height="50" src="media/instagram.jpg" alt="instagram"></a>
+     </div>
+     <div class="sns">
+       <a href="https://twitter.com/"><img width="50" height="50" src="media/twitter.jpg" alt="twitter"></a>
+     </div>
+     <p>
+       01234 경기도 시흥시 진말로 10 장곡영화단지 | 사업자등록번호 123-45-67890 전화 031-234-5678 팩스 031-9876-5432<br>
+       메일 abc@cinema.or.kr<br>
+       COPYRIGHT @ 2022 재단법인 장곡문화재단 장곡영화단지 ALL RIGHTS RESERVED.
+     </p>
+     <br>
+   </section>
+   <script type="text/javascript">
+   var t_r1 = document.getElementById("t_r1");
+   var h_r1 = document.getElementById("h_r1");
+   var c_r1 = document.getElementById("c_r1");
+
+   function change1(){
+     tut = "극한직업";
+     money = 0;
+     if(document.getElementById("movie_res").style.display == "block"){
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월03일 20시00분" selected>20시 00분</option>';
+       h_r1.innerHTML = '<h1>극한직업</h1>';
+       c_r1.innerHTML = '6월 3일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+     else{
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월03일 20시00분" selected>20시 00분</option>';
+       h_r1.innerHTML = '<h1>극한직업</h1>';
+       c_r1.innerHTML = '6월 3일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+   }
+   function change2(){
+     tut = "기생충";
+     money = 0;
+     if(document.getElementById("movie_res").style.display == "block"){
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월10일 15시30분" selected>15시 30분</option><option id="option_si2" value=" 6월10일 19시00분">19시 00분</option>';
+       h_r1.innerHTML = '<h1>기생충</h1>';
+       c_r1.innerHTML = '6월 10일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+     else{
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월10일 15시30분" selected>15시 30분</option><option id="option_si2" value=" 6월10일 19시00분">19시 00분</option>';
+       h_r1.innerHTML = '<h1>기생충</h1>';
+       c_r1.innerHTML = '6월 10일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+   }
+   function change3(){
+     tut = "닥터스트레인지2";
+     money = 0;
+     if(document.getElementById("movie_res").style.display == "block"){
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 5월27일 13시00분" selected>13시 00분</option><option id="option_si2" value=" 5월27일 15시30분">15시 30분</option><option id="option_si3" value=" 5월27일 19시00분">19시 00분</option>';
+       h_r1.innerHTML = '<h1>닥터 스트레인지 2</h1>';
+       c_r1.innerHTML = '5월 27일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+     else{
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 5월27일 13시00분" selected>13시 00분</option><option id="option_si2" value=" 5월27일 15시30분">15시 30분</option><option id="option_si3" value=" 5월27일 19시00분">19시 00분</option>';
+       h_r1.innerHTML = '<h1>닥터 스트레인지 2</h1>';
+       c_r1.innerHTML = '5월 27일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+   }
+   function change4(){
+     tut = "데드풀2";
+     money = 0;
+     if(document.getElementById("movie_res").style.display == "block"){
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월24일 15시30분" selected>15시 30분</option>';
+       h_r1.innerHTML = '<h1>데드풀2</h1>';
+       c_r1.innerHTML = '6월 24일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+     else{
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월24일 15시30분" selected>15시 30분</option>';
+       h_r1.innerHTML = '<h1>데드풀2</h1>';
+       c_r1.innerHTML = '6월 24일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+   }
+   function change5(){
+     tut = "인시디어스3";
+     money = 0;
+     if(document.getElementById("movie_res").style.display == "block"){
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월17일 20시00분" selected>20시 00분</option>';
+       h_r1.innerHTML = '<h1>인시디어스3</h1>';
+       c_r1.innerHTML = '6월 17일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+     else{
+       document.getElementById("movie_res").style.display = "block";
+       t_r1.innerHTML = '<option id="option_si" value=" 6월17일 20시00분" selected>20시 00분</option>';
+       h_r1.innerHTML = '<h1>인시디어스3</h1>';
+       c_r1.innerHTML = '6월 17일';
+       document.getElementById("non_ts").style.display = "none";
+     }
+   }
+
+   </script>
+ </body>
+</html>

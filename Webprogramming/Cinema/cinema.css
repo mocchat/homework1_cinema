@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+select{
+  width: 200px;
+  height: 50px;
+  font-size: 2em;
+}
+
+dt{
+  font-size: 2em;
+}
+
+dd{
+  font-size: 1.5em;
+}
+
+#title{
+  background-image: url(media/Curtain2.jpg);
+  background-size: 1900px 500px;
+}
+
+#headline{
+  color: #FAFAD2;
+  font-size: 5rem;
+  padding: 100px;
+  height: 200px;
+}
+
+#yout{
+  width: 50%;
+}
+
+#medium{
+  background-color: #FAFAD2;
+}
+
+#sp_dis{
+  color: red;
+}
+
+#A2{
+  display : none;
+}
+
+#l_arrow{
+  float: left;
+  padding-top: 200px;
+  width: 20%;
+}
+
+#r_arrow{
+  float: right;
+  padding-top: 200px;
+  width: 20%;
+}
+
+#age12{
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+}
+
+#age15{
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+}
+
+#age19{
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+
+#note{
+  font-size: 1.25em;
+  width: 850px;
+  padding: 20px;
+  background-color: #FAFAD2;
+}
+
+#way{
+  padding: 20px;
+}
+
+#way hr{
+  border: 0px;
+  height: 5px;
+  background: black;
+}
+
+#movies_medium{
+  background-image: url(media/flowers.jpg);
+}
+
+#introduction{
+  font-size: 1.1em;
+}
+
+#movie_res{
+  width: 500px;
+  background-color: #FAFAD2;
+}
+
+#res_table{
+  width: 800px;
+  height: 300px;
+  font-size: 2em;
+}
+
+#passport{
+  background-color: pink;
+}
+
+#non_ts{
+  display: none;
+}
+
+#li_res{
+  background-color: #FAFAD2;
+}
+
+#popcorn{
+  height: 800px;
+  background-image: url(media/popcorn.jpg);
+  background-size: 1900px 1210px;
+}
+
+#tail{
+  background-color: #000000;
+  color: white;
+}
+
+.notice{
+  text-align: left;
+}
+
+.menu{
+  display: inline-block;
+  width: 20%;
+  background-color: #FAFAD2;
+  padding: 20px;
+}
+
+.menu:hover{
+  background-color: #20B2AA;
+}
+
+.sns{
+  display: inline-block;
+  padding: 30px;
+}
+
+.structure_name{
+  font-size: 2em;
+}
+
+.movies_intro{
+  padding: 40px;
+  font-size: 2em;
+}
+
+.movies hr{
+  border: 0px;
+  height: 10px;
+  background: black;
+}
+
+.go_reservation{
+  color: blue;
+}
+
+.m2{
+  display: inline-block;
+  width: 48.5%;
+  padding: 10px;
+}
+
+.m2 hr{
+  border: 0px;
+  height: 5px;
+  background: black;
+}
+
+.timetable{
+  width: 800px;
+  height: 600px;
+  border-spacing: 0;
+  width: 90%
+}
+
+.odd{
+  background-color:	#D3D3D3	;
+}
+
+.half_img{
+  width: 90%
+}
+
+.history{
+  font-size: 1.2em;
+  color: brown;
+  background-image: url(media/paper.jpg);
+  background-size: 100%;
+}
+
+.posters{
+  display: inline-block;
+}
+
+.posters:hover> .go_intro{
+  background-color: blue;
+}
+
+.posters:hover> .choice{
+  background-color: blue;
+}
+
+.posters img{
+  width: 350px;
+}
+
+.go_intro{
+  background-color: skyblue;
+  border-radius: 10px;
+}
+
+.movie_introductions{
+  display: none;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.choice{
+  background-color: yellow;
+  border-radius: 10px;
+}
+
+.res_select{
+  padding-left: 250px;
+}
+
+.search{
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.m3{
+  padding-left: 320px;
+}
+
+.money{
+  padding-left: 420px;
+}
+
+.del{
+  width: 150px;
+  height: 50px;
+  font-size: 1.5em;
+}
+
+.non_rs{
+  display: none;
+}
+
+.del_ls{
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.see_d{
+  font-size: 15px;
+  color: blue;
+}
+
+.details{
+  display: none;
+}
+
+.event1{
+  font-size: 2em;
+}
+
+.white_bac{
+  background-color: white;
+  display: inline-block;;
+  width: 45%;
+}
+
+.screen{
+  background-color: skyblue;
+}

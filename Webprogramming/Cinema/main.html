@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset = "utf-8">
+  <link href="cinema.css" rel="stylesheet"/>
+  <title>극장 홈페이지</title>
+ </head>
+ <body>
+   <section id="title">
+     <div id="headline">
+       <a href="main.html"><h1>Cine Pequeño</h1></a>
+     </div>
+     <div>
+       <a href="intro.html"><div class="menu"><h3>극장소개</h3></div></a>
+       <a href="movies.html"><div class="menu"><h3>영화소개</h3></div></a>
+       <a href="reservation.html"><div class="menu"><h3>예매</h3></div></a>
+       <a href="event.html"><div class="menu"><h3>이벤트</h3></div></a>
+     </div>
+   </section>
+   <section id="medium">
+     <br>
+     <div id="A1" class="movies">
+       <h1 class="structure_name">금주의 추천 영화</h1>
+       <hr><br>
+       <iframe width="840" height="500" id="yout" src="https://www.youtube.com/embed/mI9oyFMUlfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <img id="l_arrow" onclick="change()" src="media/arrow_left.jpg">
+       <img id="r_arrow" onclick="change()" src="media/arrow_right.jpg">
+       <div class="movies_intro">
+         <h3>닥터 스트레인지 - 대혼돈의 멀티버스</h3><br>
+         <p>5월, 차원의 경계가 무너지고 닥터 스트레인지가 온다<br>
+            전 세계를 뒤흔들 역대급 멀티버스 전쟁의 시작!<br>
+            [닥터 스트레인지: 대혼돈의 멀티버스] 티저 예고편 공개!<br><br>
+          </p>
+         <a href="reservation.html"><h4 class="go_reservation">예매하러 가기</h4></a>
+       </div>
+     </div>
+     <div id="A2" class="movies">
+       <h1 class="structure_name">다시 찾아온 인기영화</h1>
+       <hr><br>
+       <iframe width="840" height="500" id="yout" src="https://www.youtube.com/embed/xM1CIQd_X4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <img id="l_arrow" onclick="change()" src="media/arrow_left.jpg">
+       <img id="r_arrow" onclick="change()" src="media/arrow_right.jpg">
+       <div class="movies_intro">
+         <h3>극한직업</h3><br>
+         <p>낮에는 치킨장사! 밤에는 잠복근무!<br>
+            지금까지 이런 수사는 없었다!<br>
+            <span id="sp_dis">재상영 이벤트 당첨!</span><br><br>
+          </p>
+         <a href="reservation.html"><h4 class="go_reservation">예매하러 가기</h4></a>
+       </div>
+   </section>
+   <br>
+   <section id="medium2">
+     <div>
+       <div class="m2">
+         <table class="timetable">
+           <caption class="odd"><h1>상영 시간표</h1></caption>
+           <thead>
+               <tr><th><h2>제목</h2></th><th><h2>날짜</h2></th><th><h2>시간</h2></th></tr>
+           </thead>
+           <tbody>
+             <tr><td class="odd" rowspan="3"><h2>닥터 스트레인지2</h2><span id="age12">12</span></td><td rowspan="3" class="odd">5월 27일</td><td class="odd">13:00시작</td></tr>
+             <tr>                                   </td><td class="odd">15:30시작</td></tr>
+             <tr>                                   </td><td class="odd">19:00시작</td></tr>
+             <tr><td><h2>극한직업</h2><span id="age15">15</span></td><td>6월 03일</td><td>20:00시작</td></tr>
+             <tr><td class="odd" rowspan="2"><h2>기생충</h2><span id="age15">15</span></td><td class="odd" rowspan="2">6월 10일</td><td class="odd">15:30시작</td></tr>
+             <tr>                                  <td class="odd">19:00시작</td></tr>
+             <tr><td><h2>인시디어스3</h2><span id="age15">15</span></td><td>6월 17일</td><td>20:00시작</td></tr>
+             <tr><td class="odd"><h2>데드풀2</h2><span id="age19">19</span></td><td class="odd">6월 24일</td><td class="odd">15:30시작</td></tr>
+           </tbody>
+         </table>
+       </div>
+       <div class="m2">
+         <div>
+           <fieldset id="note">
+             <legend class="notice"><h1>공지사항</h1></legend>
+             <h3>리모델링관련 안내</h3>
+             <br>
+             <p>저희 영화관 'Cine Pequeño'는 6월 27일부터 7월 15일까지 약 세 주간<br> 리모델링을 할 예정입니다.<br>
+                해당 기간동안 영화 상영은 중지될 것이며,<br> 이후 영화 정보나 예매는 7월 11일 이후에 공개될 것입니다.<br>
+                더 나은 서비스로 보답하겠습니다.<br>
+                감사합니다.
+             </p>
+           </fieldset>
+           <br><br><br>
+         </div>
+         <div>
+           <fieldset id="note">
+             <legend class="notice"><h1>안내사항</h1></legend>
+             <p>저희 영화관 'Cine Pequeño'는 매주 금요일에<br> 정기적으로 영화를 상영합니다.<br>
+                상영관이 하나이기 때문에, 많은 영화를 상영하지 못하는 점 죄송합니다.<br>
+                시간은 영화관 내부 사정에 따라 달라지므로,<br> 시간을 정하는 데 유의바랍니다.<br>
+                감사합니다.
+             </p>
+           </fieldset>
+           <br><br>
+         </div>
+       </div>
+     </div>
+   </section>
+   <br>
+   <section id="tail">
+     <div class="sns">
+       <a href="https://facebook.com/"><img width="50" height="50" src="media/facebook.jpg" alt="facebook"></a>
+     </div>
+     <div class="sns">
+       <a href="https://www.instagram.com/"><img width="50" height="50" src="media/instagram.jpg" alt="instagram"></a>
+     </div>
+     <div class="sns">
+       <a href="https://twitter.com/"><img width="50" height="50" src="media/twitter.jpg" alt="twitter"></a>
+     </div>
+     <p>
+       01234 경기도 시흥시 진말로 10 장곡영화단지 | 사업자등록번호 123-45-67890 전화 031-234-5678 팩스 031-9876-5432<br>
+       메일 abc@cinema.or.kr<br>
+       COPYRIGHT @ 2022 재단법인 장곡문화재단 장곡영화단지 ALL RIGHTS RESERVED.
+     </p>
+     <br>
+   </section>
+   <script>
+     function change(){
+       if(document.getElementById("A1").style.display == "none"){
+         document.getElementById("A1").style.display = "block";
+         document.getElementById("A2").style.display = "none";
+       }
+       else{
+         document.getElementById("A2").style.display = "block";
+         document.getElementById("A1").style.display = "none";
+       }
+     }
+   </script>
+ </body>
+</html>
